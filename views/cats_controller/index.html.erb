@@ -1,0 +1,9 @@
+<h1>ALL THE CATS</h1>
+<% @cats.each do |cat| %>
+  <p>Name: <%= cat.name %> Owner: <%= cat.owner.try('fname') %></p>
+<% end %>
+<a href="/cats/new">New cat!</a>
+<br>
+<%= "flash should be below" %>
+<br>
+<%= flash[:notice].to_s %>
