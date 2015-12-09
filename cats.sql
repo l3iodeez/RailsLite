@@ -1,9 +1,6 @@
-CREATE TABLE cats (
+CREATE TABLE houses (
   id INTEGER PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  owner_id INTEGER,
-
-  FOREIGN KEY(owner_id) REFERENCES human(id)
+  address VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE humans (
@@ -12,13 +9,18 @@ CREATE TABLE humans (
   lname VARCHAR(255) NOT NULL,
   house_id INTEGER,
 
-  FOREIGN KEY(house_id) REFERENCES human(id)
+  FOREIGN KEY(house_id) REFERENCES houses(id)
 );
 
-CREATE TABLE houses (
+CREATE TABLE cats (
   id INTEGER PRIMARY KEY,
-  address VARCHAR(255) NOT NULL
+  name VARCHAR(255) NOT NULL,
+  owner_id INTEGER,
+
+  FOREIGN KEY(owner_id) REFERENCES humans(id)
 );
+
+
 
 CREATE TABLE dogs (
   id INTEGER PRIMARY KEY,
@@ -28,7 +30,9 @@ CREATE TABLE dogs (
 CREATE TABLE walkings (
   id INTEGER PRIMARY KEY,
   dog_id INTEGER NOT NULL,
-  human_id INTEGER NOT NULL
+  owner_id INTEGER NOT NULL,
+
+  FOREIGN KEY(owner_id) REFERENCES humans(id)
 );
 
 INSERT INTO

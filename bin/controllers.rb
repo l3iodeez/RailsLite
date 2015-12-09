@@ -3,7 +3,7 @@ require 'active_support/core_ext'
 require 'webrick'
 require_relative '../lib/controller_base'
 require_relative '../lib/SQLObject'
-require_relative 'modles'
+require_relative 'models'
 
 
 

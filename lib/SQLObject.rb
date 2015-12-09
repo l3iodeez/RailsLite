@@ -35,14 +35,12 @@ class SQLObject
     define_method(name) do
       self.send(through_name).map { |through_obj| through_obj.send(source_name)}
     end
-
   end
 
   def self.has_one_through(name, through_name, source_name)
-      define_method(name.to_sym) do
-        self.send(through_name).send(source_name)
-      end
-
+    define_method(name.to_sym) do
+      self.send(through_name).send(source_name)
+    end
   end
 
   def self.assoc_options
@@ -83,10 +81,10 @@ class SQLObject
 
   def self.finalize!
     columns.each do |key|
+
       define_method(key) do
         attributes[key]
       end
-
       define_method("#{key}=") do |object|
         attributes[key] = object
       end

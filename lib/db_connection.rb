@@ -29,7 +29,7 @@ class DBConnection
 
     @db
   end
-  
+
   def self.get_first_row(*args)
     instance.execute(*args).first
   end
